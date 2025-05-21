@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GhostPost</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Fira Mono', monospace;
+            background-color: #0f0f0f;
+            color: #e2e2e2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.2rem;
+        }
+
+        p.tagline {
+            font-style: italic;
+            color: #9b9b9b;
+            margin-bottom: 2rem;
+        }
+
+        section {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        a {
+            color: #9be7ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        input[type="text"] {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            background-color: #1c1c1c;
+            color: #e2e2e2;
+            border: 1px solid #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        th,
+        td {
+            padding: 0.5rem;
+            border: 1px solid #333;
+            text-align: left;
+        }
+
+        th {
+            background-color: #1c1c1c;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>GhostPost</h1>
+    <p class="tagline">Tracking letters that were never meant to vanish.</p>
+
+    <section>
+        <h2>📦 About</h2>
+        <p><strong>GhostPost</strong> is an independent, unofficial catalog of correspondence sent to Luigi Mangione.
+            The goal is to preserve transparency and document mail interactions using initials, ZIP suffixes, postmark
+            dates, and basic metadata—never full names or letter contents.</p>
+
+        <h2>📄 Live Catalog</h2>
+        <input type="text" id="searchInput" placeholder="Search entries...">
+        <table id="catalogTable">
+            <thead>
+                <tr>
+                    <th>Initials</th>
+                    <th>ZIP Suffix</th>
+                    <th>Postmark Date</th>
+                    <th>Medium</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>KM</td>
+                    <td>17</td>
+                    <td>2025-03-04</td>
+                    <td>Letter</td>
+                    <td>Handwritten w/ doodles</td>
+                </tr>
+                <tr>
+                    <td>JD</td>
+                    <td>09</td>
+                    <td>2025-03-07</td>
+                    <td>Card</td>
+                    <td>Sent via Pigeonly</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>🕵️ Submit an Entry</h2>
+        <p>To contribute, submit a pull request to the <code>ghostpost</code> repo on GitHub or contact the maintainer
+            via secure channels. Please do not include full names or identifying info. This is a space for ghosts, not
+            profiles.</p>
+
+        <h2>🔐 Disclaimers</h2>
+        <p>This project is not affiliated with Luigi Mangione, his legal team, or any campaign. It is an archival
+            community effort to document postal transparency and support free expression.</p>
+
+        <p><a href="https://github.com/YOURUSERNAME/ghostpost" target="_blank">View the GhostPost repository on
+                GitHub</a></p>
+    </section>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const table = document.getElementById('catalogTable');
+        const rows = table.getElementsByTagName('tr');
+
+        searchInput.addEventListener('keyup', function () {
+            const filter = searchInput.value.toLowerCase();
+            for (let i = 1; i < rows.length; i++) {
+                const cells = rows[i].getElementsByTagName('td');
+                let match = false;
+                for (let j = 0; j < cells.length; j++) {
+                    if (cells[j].textContent.toLowerCase().indexOf(filter) > -1) {
+                        match = true;
+                        break;
+                    }
+                }
+                rows[i].style.display = match ? '' : 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
