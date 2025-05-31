@@ -4,7 +4,7 @@ import json
 # Convert CSV to JSON
 try:
     with open(
-        r"C:\Users\reddr\OneDrive\Documents\GitHub\GhostPost\mangione_mail_catalog.csv",
+        r"C:\Users\example\file\directory\mangione_mail_catalog.csv",
         "r",
         encoding="utf-8",
     ) as csvfile:
@@ -21,7 +21,7 @@ except csv.Error as e:
 
 try:
     with open(
-        r"C:\Users\reddr\OneDrive\Documents\GitHub\GhostPost\mangione_mail_catalog.json",
+        r"C:\Users\example\file\directory\mangione_mail_catalog.json",
         "w",
         encoding="utf-8",
     ) as jsonfile:
