@@ -8,7 +8,7 @@ output_dir = os.path.join("ghostpost", "output")
 
 # File paths
 input_csv = os.path.join(input_dir, "mangione_mail_catalog.csv")
-output_json = os.path.join(output_dir, "mangione_mail_catalog.json")
+output_json = os.path.join(output_dir, "mangione_mail_catalog_july.json")
 
 # Ensure directories exist
 os.makedirs(input_dir, exist_ok=True)
